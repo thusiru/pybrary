@@ -1,7 +1,7 @@
 import requests
 
 
-API_KEY = "AIzaSyAaKNHyn9CrpZXrUcj_aqG41rjkju817Ww"
+API_KEY = "AIzaSyBmBpF8M8gKEeyOx-vqrSyw-FZniWqYzAs"
 MAX_RESULTS = 5
 
 
