@@ -1,19 +1,22 @@
-from books import search_title
+from books import search_book
 from inputs import parse
 
 
 def main():
     while True:
-        text = parse(input("Input: "))
+        text = parse(input("Command: "))
         if text is None:
             continue
         match text.strip():
-            case "--title":
-                query = parse(input("Title: "))
-                search_title(query)
-            case "--author":
-                query = parse(input("Author: "))
-                search_title(query)
+            case "search":
+                search()
+
+def search():
+    title = parse(input("Title: "))
+    author = parse(input("Author: "))
+    books = search_book(title, author)
+    for book in books:
+        print(book)
 
 
 if __name__ == "__main__":

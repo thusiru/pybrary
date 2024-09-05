@@ -14,14 +14,14 @@ if first_time:
 
 def parse(text):
     match text.strip().lower():
-        case "--exit":
+        case "exit":
             print("Exiting the program...")
             print("Have a nice day! 🙂")
             exit(0)
-        case "--help":
-            print(f"     {RED}--exit{RESET} - Exit the Program")
-            print(f"     {RED}--help{RESET} - Show help")
-            print(f"     {RED}--title{RESET} - Search for a book title")
+        case "help":
+            print(f"     {RED}exit{RESET} - Exit the Program")
+            print(f"     {RED}help{RESET} - Show help")
+            print(f"     {RED}search{RESET} - Search for a book title")
             return None
         case _:
             return text
