@@ -1,25 +1,14 @@
-from googleapiclient.discovery import build
+import requests
 
 
 API_KEY = "AIzaSyAaKNHyn9CrpZXrUcj_aqG41rjkju817Ww"
 MAX_RESULTS = 5
 
 
-def search_books(query):
-    service = build("books", "v1", developerKey=API_KEY)
-    request = service.volumes().list(
-        q=query,
-        langRestrict="si",
-        maxResults=MAX_RESULTS,
-        orderBy="relevance",
-        printType="BOOKS",
-    )
-    response = request.execute()
+def search_title(query):
+    payload = {"q": query, "key":API_KEY}
+    response = requests.get ("https://www.googleapis.com/books/v1/volumes?", params=payload)
+    results = response.json()
 
-    if "items" in response:
-        for item in response["items"]:
-            title = item["volumeInfo"]["title"]
-            print(title)
-
-    else:
-        print("No books found.")
+    for result in results["items"]:
+        print(result["volumeInfo"]["title"])
