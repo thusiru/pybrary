@@ -1,4 +1,4 @@
-from books import search_books
+from books import search_title
 from inputs import parse
 
 
@@ -10,7 +10,10 @@ def main():
         match text.strip():
             case "--title":
                 query = parse(input("Title: "))
-                search_books(query)
+                search_title(query)
+            case "--author":
+                query = parse(input("Author: "))
+                search_title(query)
 
 
 if __name__ == "__main__":
